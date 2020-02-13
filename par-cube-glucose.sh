@@ -119,6 +119,12 @@ case $NODE_TYPE in
 esac
 
 
+while [ ! -f ~/formula.icnf ]
+do
+  echo "Waiting for file to appear"
+  ls ~
+done
+ls ~
 
 
 #####################
