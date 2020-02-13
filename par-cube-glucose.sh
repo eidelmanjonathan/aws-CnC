@@ -65,8 +65,8 @@ wait_for_nodes () {
     echo "p inccnf" > $OUT/formula$$-$CORE.icnf
     cat $CNF | grep -v c >> $OUT/formula$$-$CORE.icnf
     awk 'NR % '${AWS_BATCH_JOB_NUM_NODES}' == 'NODE_NUM'' $OUT/cubes$$ >> $OUT/formula$$-NODE_NUM.icnf
-    echo "$OUT/formula$$-NODE_NUM.icnf"
-    cat $OUT/formula$$-NODE_NUM.icnf
+    echo $OUT/formula$$-NODE_NUM.icnf
+#    cat $OUT/formula$$-NODE_NUM.icnf
   done
 
 
