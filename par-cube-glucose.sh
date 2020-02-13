@@ -125,6 +125,9 @@ do
   ls ~
 done
 ls ~
+echo "Okay lets run!"
+$DIR/iglucose/core/iglucose ~/formula.icnf ~/formula_output.txt -verb=0
+cat ~/formula_output.txt
 echo "Done!"
 tail -f /dev/null
 
