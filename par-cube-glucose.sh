@@ -19,6 +19,8 @@ if [ ! -f "$CNF" ]; then echo "c ERROR formula does not exit"; exit 1; fi
 
 
 BASENAME="${0##*/}"
+OUT=/tmp
+
 log () {
   echo "${BASENAME} - ${1}"
 }
@@ -56,6 +58,7 @@ wait_for_nodes () {
   # All of the hosts report their IP and number of processors. Combine all these
   # into one file with the following script:
   python supervised-scripts/make_combined_hostfile.py ${ip}
+  $DIR/march_cu/march_cu $CNF -o $OUT/cubes$$ -d 15
 
   for (( NODE_NUM=0; NODE_NUM<${AWS_BATCH_JOB_NUM_NODES}; NODE_NUM++ ))
   do
