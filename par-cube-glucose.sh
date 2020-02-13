@@ -66,7 +66,8 @@ wait_for_nodes () {
     cat $CNF | grep -v c >> $OUT/formula$$-$NODE_NUM.icnf
     awk 'NR % '${AWS_BATCH_JOB_NUM_NODES}' == '$NODE_NUM'' $OUT/cubes$$ >> $OUT/formula$$-$NODE_NUM.icnf
     echo $OUT/formula$$-$NODE_NUM.icnf
-    current_ip=$(cat combined_hostfile | head -NODE_NUM + 1 | tail -1)
+    let "LINE_NUM=$NODE_NUM + 1"
+    current_ip=$(cat combined_hostfile | head -$LINE_NUM | tail -1)
     echo $current_ip
     scp $OUT/formula$$-$NODE_NUM.icnf $current_ip:~/formula.icnf
   done
