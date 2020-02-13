@@ -125,6 +125,8 @@ do
   ls ~
 done
 ls ~
+echo "Done!"
+tail -f /dev/null
 
 
 #####################
