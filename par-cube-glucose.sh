@@ -96,7 +96,7 @@ report_to_master () {
   done
   log "done! goodbye"
   ps -ef | grep sshd
-  tail -f /dev/null
+
 }
 
 ##
