@@ -18,6 +18,11 @@ fi
 if [ ! -f "$CNF" ]; then echo "c ERROR formula does not exit"; exit 1; fi
 
 
+BASENAME="${0##*/}"
+log () {
+  echo "${BASENAME} - ${1}"
+}
+HOST_FILE_PATH="/tmp/hostfile"
 
 # Set child by default switch to main if on main node container
 NODE_TYPE="child"
